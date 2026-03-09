@@ -1,0 +1,235 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const latestPost = posts[0];
+const olderPosts = posts.slice(1);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<div class="hero-badge">DevOps & Cloud Engineering</div>
+				<h1>Cloudzen <span class="accent">Blog</span></h1>
+				<p class="hero-subtitle">
+					Insights on infrastructure, Kubernetes, CI/CD, and platform engineering from our team.
+				</p>
+			</section>
+
+			{latestPost && (
+				<section class="featured">
+					<a href={`/blog/${latestPost.id}/`} class="featured-card">
+						{latestPost.data.heroImage && (
+							<div class="featured-image">
+								<Image width={800} height={400} src={latestPost.data.heroImage} alt="" />
+							</div>
+						)}
+						<div class="featured-content">
+							<span class="featured-label">Latest</span>
+							<h2>{latestPost.data.title}</h2>
+							<p class="featured-description">{latestPost.data.description}</p>
+							<span class="featured-date">
+								<FormattedDate date={latestPost.data.pubDate} />
+							</span>
+						</div>
+					</a>
+				</section>
+			)}
+
+			{olderPosts.length > 0 && (
+				<section class="posts-grid">
+					{olderPosts.map((post) => (
+						<a href={`/blog/${post.id}/`} class="post-card">
+							{post.data.heroImage && (
+								<div class="post-image">
+									<Image width={400} height={200} src={post.data.heroImage} alt="" />
+								</div>
+							)}
+							<div class="post-content">
+								<h3>{post.data.title}</h3>
+								<span class="post-date">
+									<FormattedDate date={post.data.pubDate} />
+								</span>
+							</div>
+						</a>
+					))}
+				</section>
+			)}
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 900px;
+	}
+
+	.hero {
+		padding: 3em 0 2em;
+		text-align: center;
+	}
+
+	.hero-badge {
+		display: inline-block;
+		font-size: 0.8em;
+		font-weight: 600;
+		color: var(--green);
+		background: rgba(211, 253, 177, 0.08);
+		border: 1px solid rgba(211, 253, 177, 0.15);
+		padding: 0.4em 1em;
+		border-radius: 20px;
+		margin-bottom: 1.5em;
+		letter-spacing: 0.02em;
+	}
+
+	.hero h1 {
+		font-size: 3em;
+		margin-bottom: 0.3em;
+	}
+
+	.accent {
+		background: var(--gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.hero-subtitle {
+		color: var(--text-muted);
+		font-size: 1.1em;
+		max-width: 500px;
+		margin: 0 auto;
+	}
+
+	.featured {
+		margin-bottom: 3em;
+	}
+
+	.featured-card {
+		display: block;
+		background: var(--bg-surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		overflow: hidden;
+		text-decoration: none;
+		color: inherit;
+		transition: var(--transition);
+	}
+
+	.featured-card:hover {
+		border-color: rgba(198, 160, 247, 0.3);
+		transform: translateY(-2px);
+	}
+
+	.featured-image img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: 0;
+	}
+
+	.featured-content {
+		padding: 1.5em 2em 2em;
+	}
+
+	.featured-label {
+		display: inline-block;
+		font-size: 0.75em;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--violet);
+		margin-bottom: 0.75em;
+	}
+
+	.featured-content h2 {
+		margin-bottom: 0.5em;
+		font-size: 1.6em;
+	}
+
+	.featured-description {
+		color: var(--text-muted);
+		margin-bottom: 1em;
+		font-size: 0.95em;
+	}
+
+	.featured-date {
+		color: var(--text-muted);
+		font-size: 0.85em;
+	}
+
+	.posts-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5em;
+	}
+
+	.post-card {
+		display: flex;
+		flex-direction: column;
+		background: var(--bg-surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		overflow: hidden;
+		text-decoration: none;
+		color: inherit;
+		transition: var(--transition);
+	}
+
+	.post-card:hover {
+		border-color: rgba(198, 160, 247, 0.3);
+		transform: translateY(-2px);
+	}
+
+	.post-image img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: 0;
+	}
+
+	.post-content {
+		padding: 1.25em;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.post-content h3 {
+		font-size: 1.1em;
+		margin-bottom: 0.5em;
+		flex: 1;
+	}
+
+	.post-date {
+		color: var(--text-muted);
+		font-size: 0.8em;
+	}
+
+	@media (max-width: 720px) {
+		.hero h1 { font-size: 2.2em; }
+
+		.posts-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.featured-content {
+			padding: 1.25em;
+		}
+	}
+</style>

@@ -1,0 +1,194 @@
+:root {
+	--bg: #0A0A0A;
+	--bg-surface: #141414;
+	--bg-surface-hover: #1a1a1a;
+	--text: #fff;
+	--text-muted: #9B9B9B;
+	--text-dark: #343434;
+	--violet: #C6A0F7;
+	--green: #D3FDB1;
+	--gradient: linear-gradient(90deg, rgba(149,64,255,1) 0%, rgba(164,85,255,1) 50%, rgba(149,64,255,1) 100%);
+	--border: rgba(255,255,255,0.08);
+	--transition: all .3s cubic-bezier(.19,1,.22,1);
+	--radius: 12px;
+}
+
+@font-face {
+	font-family: "Mont";
+	src: url("/fonts/mont/mont-400.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Mont";
+	src: url("/fonts/mont/mont-600.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Mont";
+	src: url("/fonts/mont/mont-700.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Manrope";
+	src: url("/fonts/manrope/manrope-400.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Manrope";
+	src: url("/fonts/manrope/manrope-600.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Manrope";
+	src: url("/fonts/manrope/manrope-700.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Manrope", "Mont", Tahoma, Calibri, sans-serif;
+	background: var(--bg);
+	color: var(--text);
+	font-size: 18px;
+	line-height: 1.7;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+main {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 2em 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Mont", "Manrope", Tahoma, Calibri, sans-serif;
+	color: var(--text);
+	line-height: 1.2;
+	margin: 0 0 0.5rem 0;
+}
+
+h1 { font-size: 2.5em; font-weight: 700; }
+h2 { font-size: 1.8em; font-weight: 700; }
+h3 { font-size: 1.4em; font-weight: 600; }
+h4 { font-size: 1.15em; font-weight: 600; }
+
+strong, b { font-weight: 700; }
+
+a {
+	color: var(--violet);
+	text-decoration: none;
+	transition: var(--transition);
+}
+a:hover {
+	color: var(--green);
+}
+
+p { margin-bottom: 1em; }
+.prose p { margin-bottom: 1.5em; }
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--radius);
+}
+
+code {
+	padding: 2px 6px;
+	background: var(--bg-surface);
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	font-size: 0.9em;
+	color: var(--green);
+}
+
+pre {
+	padding: 1.5em;
+	border-radius: var(--radius);
+	background: var(--bg-surface) !important;
+	border: 1px solid var(--border);
+	overflow-x: auto;
+}
+
+pre > code {
+	all: unset;
+	color: inherit;
+}
+
+blockquote {
+	border-left: 3px solid var(--violet);
+	padding: 0 0 0 1.5em;
+	margin: 1.5em 0;
+	color: var(--text-muted);
+	font-size: 1.1em;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid var(--border);
+	margin: 2em 0;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 0.75em 1em;
+	border-bottom: 1px solid var(--border);
+	text-align: left;
+}
+
+th {
+	color: var(--violet);
+	font-weight: 600;
+}
+
+ul, ol {
+	padding-left: 1.5em;
+}
+
+li {
+	margin-bottom: 0.4em;
+}
+
+@media (max-width: 720px) {
+	body { font-size: 16px; }
+	main { padding: 1em; }
+	h1 { font-size: 2em; }
+	h2 { font-size: 1.5em; }
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}

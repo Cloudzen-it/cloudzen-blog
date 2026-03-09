@@ -1,0 +1,35 @@
+<!-- Background glow effects matching cloudzendevops.com -->
+<div class="bg-glow" aria-hidden="true">
+	<div class="bg-glow__top"></div>
+	<div class="bg-glow__bottom"></div>
+</div>
+
+<style>
+	.bg-glow {
+		position: fixed;
+		inset: 0;
+		pointer-events: none;
+		z-index: -1;
+		overflow: hidden;
+	}
+
+	.bg-glow__top {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 120vh;
+		background: url('/images/back/hero-glow.svg') center no-repeat transparent;
+		background-size: cover;
+	}
+
+	.bg-glow__bottom {
+		position: absolute;
+		bottom: -20vh;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: url('/images/back/bottom-glow.svg') top center no-repeat transparent;
+		background-size: cover;
+	}
+</style>

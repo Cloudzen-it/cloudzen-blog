@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bgG2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f14;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a24;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="340" rx="12" fill="url(#bgG2)" />
+
+  <text x="450" y="38" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">Monthly Cost Breakdown</text>
+
+  <!-- Headers -->
+  <text x="200" y="72" text-anchor="middle" fill="#ff6b6b" font-size="13" font-weight="600">Before ($2,800)</text>
+  <text x="700" y="72" text-anchor="middle" fill="#51cf66" font-size="13" font-weight="600">After ($1,120)</text>
+
+  <!-- BEFORE bars -->
+  <!-- ECS -->
+  <rect x="60" y="90" width="280" height="38" rx="4" fill="#ff6b6b" fill-opacity="0.25" stroke="#ff6b6b" stroke-width="1" stroke-opacity="0.4" />
+  <text x="72" y="114" fill="#ff8a8a" font-size="12" font-weight="600">ECS Fargate (always-on)</text>
+  <text x="328" y="114" text-anchor="end" fill="#ff6b6b" font-size="13" font-weight="700">$1,400</text>
+
+  <!-- ALB -->
+  <rect x="60" y="136" width="114" height="38" rx="4" fill="#ff6b6b" fill-opacity="0.2" stroke="#ff6b6b" stroke-width="1" stroke-opacity="0.3" />
+  <text x="72" y="160" fill="#ff8a8a" font-size="12" font-weight="600">Load Balancer</text>
+  <text x="162" y="160" text-anchor="end" fill="#ff6b6b" font-size="13" font-weight="700">$400</text>
+
+  <!-- RDS -->
+  <rect x="60" y="182" width="200" height="38" rx="4" fill="#ff6b6b" fill-opacity="0.15" stroke="#ff6b6b" stroke-width="1" stroke-opacity="0.25" />
+  <text x="72" y="206" fill="#ff8a8a" font-size="12" font-weight="600">RDS (over-provisioned)</text>
+  <text x="248" y="206" text-anchor="end" fill="#ff6b6b" font-size="13" font-weight="700">$700</text>
+
+  <!-- NAT + other -->
+  <rect x="60" y="228" width="86" height="38" rx="4" fill="#ff6b6b" fill-opacity="0.1" stroke="#ff6b6b" stroke-width="1" stroke-opacity="0.2" />
+  <text x="72" y="252" fill="#ff8a8a" font-size="12" font-weight="600">NAT + Other</text>
+  <text x="134" y="252" text-anchor="end" fill="#ff6b6b" font-size="13" font-weight="700">$300</text>
+
+  <!-- Divider -->
+  <line x1="450" y1="80" x2="450" y2="300" stroke="#333" stroke-width="1" stroke-dasharray="4,4" />
+
+  <!-- AFTER bars -->
+  <!-- Lambda -->
+  <rect x="560" y="90" width="80" height="38" rx="4" fill="#51cf66" fill-opacity="0.25" stroke="#51cf66" stroke-width="1" stroke-opacity="0.4" />
+  <text x="572" y="114" fill="#7ddf7d" font-size="12" font-weight="600">Lambda</text>
+  <text x="628" y="114" text-anchor="end" fill="#51cf66" font-size="13" font-weight="700">$180</text>
+
+  <!-- API GW + CF -->
+  <rect x="560" y="136" width="24" height="38" rx="4" fill="#51cf66" fill-opacity="0.2" stroke="#51cf66" stroke-width="1" stroke-opacity="0.3" />
+  <text x="596" y="160" fill="#7ddf7d" font-size="12" font-weight="600">API GW + CloudFront</text>
+  <text x="748" y="160" text-anchor="end" fill="#51cf66" font-size="13" font-weight="700">$60</text>
+
+  <!-- RDS -->
+  <rect x="560" y="182" width="133" height="38" rx="4" fill="#51cf66" fill-opacity="0.15" stroke="#51cf66" stroke-width="1" stroke-opacity="0.25" />
+  <text x="572" y="206" fill="#7ddf7d" font-size="12" font-weight="600">RDS (right-sized)</text>
+  <text x="681" y="206" text-anchor="end" fill="#51cf66" font-size="13" font-weight="700">$230</text>
+
+  <!-- NAT + other -->
+  <rect x="560" y="228" width="210" height="38" rx="4" fill="#51cf66" fill-opacity="0.1" stroke="#51cf66" stroke-width="1" stroke-opacity="0.2" />
+  <text x="572" y="252" fill="#7ddf7d" font-size="12" font-weight="600">NAT + S3 + Secrets + Monitoring</text>
+  <text x="758" y="252" text-anchor="end" fill="#51cf66" font-size="13" font-weight="700">$650</text>
+
+  <!-- Savings callout -->
+  <rect x="310" y="286" width="280" height="40" rx="20" fill="#51cf66" fill-opacity="0.12" stroke="#51cf66" stroke-width="1.5" />
+  <text x="450" y="311" text-anchor="middle" fill="#51cf66" font-size="15" font-weight="700">Annual savings: $20,160</text>
+</svg>

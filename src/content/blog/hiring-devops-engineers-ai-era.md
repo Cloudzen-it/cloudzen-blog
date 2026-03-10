@@ -95,4 +95,11 @@ For hiring managers: update your job descriptions, redesign your interviews, and
 
 ---
 
-*At [Cloudzen](https://cloudzendevops.com), we help companies build and scale their DevOps capabilities — from infrastructure architecture to team building. [Get in touch](https://linkedin.com/in/daniel-jeshkov-devops/) to discuss your needs.*
+<div style="display: flex; align-items: flex-start; gap: 20px; margin-top: 2em; padding: 24px; border: 1px solid #2a2a3a; border-radius: 12px; background: #13131a;">
+  <img src="https://cloudzendevops.com/images/back/about__wrap/dan-jeshkov.jpg" alt="Dan Jeshkov" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex-shrink: 0;" />
+  <div>
+    <strong style="font-size: 1.05em;">Dan Jeshkov</strong><br/>
+    <span style="color: #888; font-size: 0.9em;">CEO at <a href="https://cloudzendevops.com">Cloudzen</a></span>
+    <p style="margin-top: 8px; font-size: 0.95em; color: #aaa;">At Cloudzen, we help companies build and scale their DevOps capabilities — from infrastructure architecture to team building. <a href="https://linkedin.com/in/daniel-jeshkov-devops/">Get in touch</a> to discuss your needs.</p>
+  </div>
+</div>

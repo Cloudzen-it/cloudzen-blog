@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f14;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a24;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ff6b6b;stop-opacity:0.05" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#51cf66;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#51cf66;stop-opacity:0.05" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="420" rx="12" fill="url(#bgGrad)" />
+
+  <!-- BEFORE -->
+  <rect x="20" y="20" width="420" height="380" rx="10" fill="url(#redGrad)" stroke="#ff6b6b" stroke-width="1" stroke-opacity="0.3" />
+  <text x="230" y="52" text-anchor="middle" fill="#ff6b6b" font-size="14" font-weight="700" letter-spacing="2">BEFORE</text>
+
+  <!-- Users -->
+  <rect x="165" y="72" width="130" height="36" rx="6" fill="#2a2a3a" stroke="#666" stroke-width="1" />
+  <text x="230" y="95" text-anchor="middle" fill="#ccc" font-size="12">Users</text>
+
+  <!-- Arrow -->
+  <line x1="230" y1="108" x2="230" y2="128" stroke="#555" stroke-width="1.5" marker-end="url(#arrowGray)" />
+
+  <!-- ALB -->
+  <rect x="140" y="130" width="180" height="40" rx="6" fill="#3a2020" stroke="#ff6b6b" stroke-width="1" stroke-opacity="0.5" />
+  <text x="230" y="155" text-anchor="middle" fill="#ff8a8a" font-size="12" font-weight="600">Application Load Balancer</text>
+  <text x="360" y="155" fill="#ff6b6b" font-size="10" font-weight="600">$400/mo</text>
+
+  <line x1="230" y1="170" x2="230" y2="190" stroke="#555" stroke-width="1.5" />
+
+  <!-- ECS -->
+  <rect x="90" y="192" width="280" height="80" rx="6" fill="#3a2020" stroke="#ff6b6b" stroke-width="1" stroke-opacity="0.5" />
+  <text x="230" y="215" text-anchor="middle" fill="#ff8a8a" font-size="12" font-weight="600">ECS Fargate (always-on)</text>
+  <text x="230" y="235" text-anchor="middle" fill="#888" font-size="11">NestJS Monolith</text>
+  <text x="230" y="255" text-anchor="middle" fill="#ff6b6b" font-size="10">8% avg CPU utilization</text>
+
+  <line x1="230" y1="272" x2="230" y2="292" stroke="#555" stroke-width="1.5" />
+
+  <!-- RDS -->
+  <rect x="130" y="294" width="200" height="40" rx="6" fill="#2a2a3a" stroke="#666" stroke-width="1" />
+  <text x="230" y="319" text-anchor="middle" fill="#ccc" font-size="12">RDS (over-provisioned 3x)</text>
+
+  <!-- Cost -->
+  <rect x="100" y="352" width="260" height="36" rx="18" fill="#ff6b6b" fill-opacity="0.15" stroke="#ff6b6b" stroke-width="1" />
+  <text x="230" y="375" text-anchor="middle" fill="#ff6b6b" font-size="15" font-weight="700">$2,800 / month</text>
+
+
+  <!-- AFTER -->
+  <rect x="460" y="20" width="420" height="380" rx="10" fill="url(#greenGrad)" stroke="#51cf66" stroke-width="1" stroke-opacity="0.3" />
+  <text x="670" y="52" text-anchor="middle" fill="#51cf66" font-size="14" font-weight="700" letter-spacing="2">AFTER</text>
+
+  <!-- Users -->
+  <rect x="605" y="72" width="130" height="36" rx="6" fill="#2a2a3a" stroke="#666" stroke-width="1" />
+  <text x="670" y="95" text-anchor="middle" fill="#ccc" font-size="12">Users</text>
+
+  <line x1="670" y1="108" x2="670" y2="128" stroke="#555" stroke-width="1.5" />
+
+  <!-- CloudFront -->
+  <rect x="575" y="130" width="190" height="36" rx="6" fill="#1a3a1a" stroke="#51cf66" stroke-width="1" stroke-opacity="0.5" />
+  <text x="670" y="153" text-anchor="middle" fill="#7ddf7d" font-size="12" font-weight="600">CloudFront + WAF</text>
+
+  <line x1="670" y1="166" x2="670" y2="182" stroke="#555" stroke-width="1.5" />
+
+  <!-- API Gateway -->
+  <rect x="585" y="184" width="170" height="32" rx="6" fill="#1a3a1a" stroke="#51cf66" stroke-width="1" stroke-opacity="0.5" />
+  <text x="670" y="205" text-anchor="middle" fill="#7ddf7d" font-size="12" font-weight="600">API Gateway</text>
+  <text x="795" y="205" fill="#51cf66" font-size="10" font-weight="600">$60/mo</text>
+
+  <line x1="670" y1="216" x2="670" y2="230" stroke="#555" stroke-width="1.5" />
+
+  <!-- Lambda functions -->
+  <g>
+    <rect x="485" y="232" width="90" height="28" rx="5" fill="#1a3020" stroke="#51cf66" stroke-width="0.8" stroke-opacity="0.4" />
+    <text x="530" y="250" text-anchor="middle" fill="#7ddf7d" font-size="9">Main API</text>
+
+    <rect x="583" y="232" width="90" height="28" rx="5" fill="#1a3020" stroke="#51cf66" stroke-width="0.8" stroke-opacity="0.4" />
+    <text x="628" y="250" text-anchor="middle" fill="#7ddf7d" font-size="9">Documents</text>
+
+    <rect x="681" y="232" width="90" height="28" rx="5" fill="#1a3020" stroke="#51cf66" stroke-width="0.8" stroke-opacity="0.4" />
+    <text x="726" y="250" text-anchor="middle" fill="#7ddf7d" font-size="9">Config</text>
+
+    <rect x="779" y="232" width="80" height="28" rx="5" fill="#1a3020" stroke="#51cf66" stroke-width="0.8" stroke-opacity="0.4" />
+    <text x="819" y="250" text-anchor="middle" fill="#7ddf7d" font-size="9">PDF</text>
+  </g>
+
+  <text x="670" y="278" text-anchor="middle" fill="#51cf66" font-size="10">Scales to zero when idle</text>
+
+  <line x1="670" y1="288" x2="670" y2="300" stroke="#555" stroke-width="1.5" />
+
+  <!-- RDS right-sized -->
+  <rect x="570" y="302" width="200" height="36" rx="6" fill="#2a2a3a" stroke="#666" stroke-width="1" />
+  <text x="670" y="325" text-anchor="middle" fill="#ccc" font-size="12">RDS (right-sized)</text>
+
+  <!-- Cost -->
+  <rect x="540" y="352" width="260" height="36" rx="18" fill="#51cf66" fill-opacity="0.15" stroke="#51cf66" stroke-width="1" />
+  <text x="670" y="375" text-anchor="middle" fill="#51cf66" font-size="15" font-weight="700">$1,120 / month</text>
+
+  <!-- Arrow between -->
+  <text x="450" y="215" text-anchor="middle" fill="#888" font-size="24">&#8594;</text>
+</svg>
